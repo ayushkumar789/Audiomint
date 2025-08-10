@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/img/misc/favicon.png">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Contact — Audiomint</title>
+
+    <!-- CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
+
+    <style>
+      /* Full-width responsive map (embedded iframe) */
+      .map-embed {
+        width: 100%;
+        height: 480px;           /* adjust if you want it taller/shorter */
+        background: #e9ecef;
+      }
+      .map-embed iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+      }
+
+      /* Card sits BELOW the map now */
+      .contact-card {
+        width: 820px;
+        max-width: calc(100% - 40px);
+        margin: 24px auto 0;
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.12);
+        padding: 22px 24px;
+      }
+      .contact-card h3 { margin-top: 0; font-weight: 700; }
+      .contact-card .help { font-size: 13px; color: #6c757d; margin-bottom: 12px; }
+      .contact-card .form-control { height: 42px; box-shadow: none; }
+      .contact-card textarea.form-control { height: 110px; resize: vertical; }
+      .contact-card .btn { padding: 9px 18px; border-radius: 999px; }
+
+      @media (max-width: 991px) {
+        .map-embed { height: 440px; }
+      }
+      @media (max-width: 767px) {
+        .map-embed { height: 360px; }
+        .contact-card { padding: 18px; margin-top: 18px; }
+      }
+    </style>
+  </head>
+
+  <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Preloader -->
+    <div id="preloader"><div id="status"></div></div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-Concept navbar-center navbar-custom navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main-collapse">
+            <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="/">
+            <div class="logobig"><span class="logo"></sup>Audiomint</span></div>
+            <span class="logodark">Audiomint</span>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-main-collapse">
+          <ul class="nav navbar-nav">
+            <li class="hidden"><a href="#page-top"></a></li>
+            <li class="hidden"><a href="#page-top"></a></li>
+            <li><a class="page-scroll" href="/">Home</a></li>
+            <li><a class="page-scroll" href="/#about">How it works</a></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="/faq">FAQ</a></li>
+            <li class="active"><a href="/contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="intro introhalf" style="background-image:url('/static/img/main/37.jpg')">
+      <div class="overlay"></div>
+      <div class="intro-body">
+        <h1>Contact us</h1>
+        <h4>We’ll get back within 24–48 hours</h4>
+      </div>
+    </header>
+
+    <!-- Map (full width) -->
+    <section class="section-small" id="contact">
+      <div class="map-embed">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d121823.52798730278!2d78.325473962796!3d17.412495510927666!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaebd2c7%3A0xae93b78392bafbc2!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1754857673448!5m2!1sen!2sin"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+      <!-- Card below the map -->
+      <div class="contact-card">
+        <h3>Say hello</h3>
+        <p class="help">
+          Found a bug, need a feature, or a track didn’t work? Send us a message with your Spotify link and a short description.
+        </p>
+
+        <form id="contactForm" method="post" action="/contact" novalidate>
+          <div class="form-group">
+            <label class="sr-only" for="spotify_link">Spotify link</label>
+            <input id="spotify_link" name="spotify_link" class="form-control" type="url" placeholder="Spotify link (optional)">
+          </div>
+
+          <div class="form-group">
+            <label class="sr-only" for="email">Your email</label>
+            <input id="email" name="email" class="form-control" type="email" placeholder="Your email" required>
+          </div>
+
+          <div class="form-group">
+            <label class="sr-only" for="message">Message</label>
+            <textarea id="message" name="message" class="form-control" placeholder="Message" required></textarea>
+          </div>
+
+          <div class="text-right">
+            <button class="btn btn-dark" type="submit">Send</button>
+          </div>
+
+          <div class="help" style="margin-top:10px;">
+            Or email us at <a href="mailto:ayushkumarpanigrahi@gmail.com">ayushkumarpanigrahi@gmail.com</a>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="section-small bg-gray footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="list-inline no-pad">
+              <li><a href="/"><i class="fab fa-twitter fa-fw fa-lg"></i></a></li>
+              <li><a href="/"><i class="fab fa-facebook-f la-fw fa-lg"></i></a></li>
+              <li><a href="/"><i class="fab fa-youtube fa-fw fa-lg"></i></a></li>
+              <li><a href="/"><i class="fab fa-vimeo-v fa-fw fa-lg"></i></a></li>
+              <li><a href="/"><i class="fab fa-github-alt fa-fw fa-lg"></i></a></li>
+              <li><a href="/"><i class="fab fab fa-linkedin-in fa-fw fa-lg"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-lg-offset-1">
+            <h5 class="no-pad">Personal/educational use only</h5>
+          </div>
+          <div class="col-lg-3 col-lg-offset-1">
+            <h5 class="no-pad">Made with ❤️ by Ayush Kumar</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JS -->
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.easing.min.js"></script>
+    <script src="/static/js/jquery.countdown.min.js"></script>
+    <script src="/static/js/device.min.js"></script>
+    <script src="/static/js/form.min.js"></script>
+    <script src="/static/js/jquery.placeholder.min.js"></script>
+    <script src="/static/js/jquery.shuffle.min.js"></script>
+    <script src="/static/js/jquery.parallax.min.js"></script>
+    <script src="/static/js/jquery.circle-progress.min.js"></script>
+    <script src="/static/js/jquery.swipebox.min.js"></script>
+    <script src="/static/js/wow.min.js"></script>
+    <script src="/static/js/jquery.smartmenus.js"></script>
+    <script src="/static/js/main.js"></script>
+  </body>
+</html>

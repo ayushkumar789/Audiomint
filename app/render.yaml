@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: concept-downloader
+    env: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: CLEANUP_TTL_MIN
+        value: "60"
+      - key: SPOTDL_AUDIO_SOURCE
+        value: youtube-music
+      - key: SPOTDL_FORMAT
+        value: mp3
+      - key: SPOTDL_BITRATE
+        value: 256k
+      # Add this in the UI for security (don’t commit cookies to git):
+      # - key: YTMUSIC_COOKIES
+      #   sync: false

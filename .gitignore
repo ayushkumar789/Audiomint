@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# venv
+.venv/
+env/
+venv/
+
+# project temp + artifacts
+tmp/
+*.zip
+
+# OS
+.DS_Store
+Thumbs.db

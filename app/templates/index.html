@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/img/misc/favicon.png">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Spotify Downloader – Audiomint</title>
+    <!-- Bootstrap Core CSS-->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS (keep template’s)-->
+    <link href="/static/css/main.css" rel="stylesheet">
+  </head>
+  <body class="top" id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <!-- Preloader (as-is)-->
+    <div id="preloader"><div id="status"></div></div>
+
+    <!-- Navigation (trimmed to essential links)-->
+    <nav class="navbar navbar-Concept navbar-center navbar-custom navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-main-collapse">
+            <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand page-scroll" href="#page-top">
+            <div class="logobig"><span class="logo"></sup>Audiomint</span></div>
+            <span class="logodark">Audiomint</span>
+          </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-main-collapse">
+          <ul class="nav navbar-nav">
+            <li class="hidden"><a href="#page-top"></a></li>
+            <li><a class="page-scroll" href="#page-top">Home</a></li>
+            <li><a class="page-scroll" href="#about">How it works</a></li>
+          </ul>
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="/faq.html">FAQ</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Intro Slider (kept structure/classes; single slide with form)-->
+    <header class="intro carousel carousel-big slide carousel-fade" id="Carousel-intro" data-ride="carousel">
+      <!-- Indicators (single slide) -->
+
+
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="fill" style="background-image:url('/static/img/main/37.jpg');">
+            <div class="intro-body">
+              <div class="overlay"></div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-8 col-lg-offset-2">
+                    <h1>
+                      <span class="big">
+                        <div class="span blue">Spotify → Audio</div>
+                        <div class="span indent"><br><sup class="bold">Paste link, pick format,</sup> download</div>
+                      </span>
+                      <sup class="bold">instantly</sup>
+                    </h1>
+
+                    <!-- Download form (Bootstrap markup only; posts to /download) -->
+                    <form id="downloadForm" class="wow fadeInUp" data-wow-delay=".2s" role="form">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="form-group">
+        <label class="sr-only" for="spotify_urls">Spotify URL(s)</label>
+        <textarea class="form-control input-lg" id="spotify_urls" name="spotify_urls" rows="4"
+          placeholder="Paste a Spotify track / playlist / album / artist URL. One per line is OK." required></textarea>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="format" class="control-label">Audio format</label>
+        <select id="format" name="format" class="form-control input-lg">
+          <option value="mp3" selected>MP3 (most compatible)</option>
+          <option value="m4a">M4A / AAC</option>
+          <option value="opus">Opus (smaller size)</option>
+          <option value="flac">FLAC (lossless)</option>
+        </select>
+      </div>
+      <!-- NOTE: no .small class here -->
+      <small class="text-muted help-block" style="margin-top:-6px;color: #5bc0de">
+        Default bitrate per format. We’ll tag tracks &amp; cover art automatically.
+      </small>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="agree" required>
+          I have the right to download this audio for personal use.
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-5 text-right">
+      <button id="downloadBtn" type="submit" class="btn btn-white btn-lg">Download MP3</button>
+    </div>
+  </div>
+  <div id="errorBox" class="alert alert-danger" style="display:none; margin-top:10px;"></div>
+</form>
+
+
+                    <p style="margin-top:15px;">
+                      <a class="btn btn-white page-scroll wow fadeInLeft" href="#about">How it works</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div> <!-- /.intro-body -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls (kept for consistency though single slide)-->
+
+    </header>
+
+    <!-- Teaser (kept section/classes; content adjusted)-->
+    <div class="container text-center box-shadow showcase">
+      <div class="row">
+        <div class="col-lg-4">
+          <h3><i class="ion-ios-analytics-outline icon-big"></i> Your chosen format</h3>
+          <p class="no-pad">Pick MP3, M4A, Opus, or FLAC. We embed tags & cover art automatically.</p>
+        </div>
+        <div class="col-lg-4 border">
+          <h3><i class="ion-ionic icon-big fa-spin"></i> YouTube / YT Music match</h3>
+          <p class="no-pad">We match your Spotify items on YT/YT Music for fast, reliable downloads.</p>
+        </div>
+        <div class="col-lg-4">
+          <h3><i class="ion-ios-stopwatch-outline icon-big"></i> Simple & fast</h3>
+          <p class="no-pad">Paste link → click download. Keep this tab open while we prepare your file.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Section (repurposed to “How it works”)-->
+    <section class="showcase section-small" id="about">
+      <div class="container">
+        <div class="row v-center">
+          <div class="col-lg-6">
+            <h2>How it works</h2>
+            <p>Paste any Spotify link (track, playlist, album, or artist). We fetch metadata, find the best match on YouTube/YouTube Music, convert to your selected format, embed tags/cover, and return a single file or a ZIP if there are multiple tracks.</p>
+            <div class="classic">Tip</div> <small>&mdash; Multiple links? Paste one per line, or make a playlist.</small>
+          </div>
+          <div class="col-lg-6">
+            <img class="wow slideInRight center-block" src="/static/img/misc/7.png" alt="" data-wow-duration="2s" animation-duration="2s">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer (kept template’s simple footer style)-->
+    <section class="section-small bg-gray footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <ul class="list-inline no-pad">
+              <li><a href="/"><i class="fab fa-twitter fa-fw fa-lg"></i></a></li>
+              <li><a href="/"><i class="fab fa-facebook-f la-fw fa-lg"></i></a></li>
+              <li><a href="/"><i class="fab fa-youtube fa-fw fa-lg"></i></a></li>
+              <li><a href="/"><i class="fab fa-vimeo-v fa-fw fa-lg"></i></a></li>
+              <li><a href="/"><i class="fab fa-github-alt fa-fw fa-lg"></i></a></li>
+              <li><a href="/"><i class="fab fab fa-linkedin-in fa-fw fa-lg"></i></a></li>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-lg-offset-1">
+            <h5 class="no-pad">Personal/educational use only</h5>
+          </div>
+          <div class="col-lg-3 col-lg-offset-1">
+            <h5 class="no-pad">Made with ❤️ by Ayush Kumar</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap modal used as loading/buffering screen -->
+    <div class="modal fade" id="downloadingModal" tabindex="-1" role="dialog" aria-labelledby="downloadingLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body text-center">
+            <i class="ion-ios-stopwatch-outline icon-big"></i>
+            <h4 id="downloadingLabel">Preparing your download…</h4>
+            <p>Please keep this tab open. Large playlists may take a minute.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery-->
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap Core JavaScript-->
+    <script src="/static/js/bootstrap.min.js"></script>
+    <!-- Plugin JavaScript (kept as in template)-->
+    <script src="/static/js/jquery.easing.min.js"></script>
+    <script src="/static/js/jquery.countdown.min.js"></script>
+    <script src="/static/js/device.min.js"></script>
+    <script src="/static/js/form.min.js"></script>
+    <script src="/static/js/jquery.placeholder.min.js"></script>
+    <script src="/static/js/jquery.shuffle.min.js"></script>
+    <script src="/static/js/jquery.parallax.min.js"></script>
+    <script src="/static/js/jquery.circle-progress.min.js"></script>
+    <script src="/static/js/jquery.swipebox.min.js"></script>
+    <script src="/static/js/wow.min.js"></script>
+    <script src="/static/js/jquery.smartmenus.js"></script>
+    <!-- Google Maps API + map.js (left intact per your request)-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsh1qTKHU0HysXREMrcPMtcuRBmBE7pbc"></script>
+    <script src="/static/js/map.js"></script>
+    <!-- Custom Theme JavaScript-->
+    <script src="/static/js/main.js"></script>
+
+    <!-- Minimal JS to call /download and trigger file save (no CSS changes) -->
+    <script>
+      (function () {
+        var form = document.getElementById('downloadForm');
+        var btn = document.getElementById('downloadBtn');
+        var errorBox = document.getElementById('errorBox');
+        var formatSel = document.getElementById('format');
+
+        function syncBtnLabel() {
+          var fmt = (formatSel.value || 'mp3').toUpperCase();
+          btn.textContent = 'Download ' + fmt;
+        }
+        syncBtnLabel();
+        formatSel.addEventListener('change', syncBtnLabel);
+
+        function showError(msg) {
+          errorBox.innerHTML = msg || 'Something went wrong. Please try again.';
+          errorBox.style.display = 'block';
+        }
+        function clearError() {
+          errorBox.innerHTML = '';
+          errorBox.style.display = 'none';
+        }
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          clearError();
+
+          var textarea = document.getElementById('spotify_urls');
+          if (!textarea.value.trim()) {
+            showError('Please paste at least one Spotify link.');
+            return;
+          }
+          if (!document.getElementById('agree').checked) {
+            showError('Please confirm you have the right to download.');
+            return;
+          }
+
+          var fd = new FormData();
+          fd.append('spotify_urls', textarea.value.trim());
+          fd.append('format', formatSel.value); // NEW: pass selected format
+
+          $('#downloadingModal').modal({backdrop: 'static', keyboard: false});
+          btn.disabled = true;
+
+          fetch('/download', { method: 'POST', body: fd })
+            .then(function (res) {
+              if (!res.ok) return res.text().then(function (t) { throw new Error(t || res.statusText); });
+
+              var cd = res.headers.get('Content-Disposition') || '';
+              var match = /filename\*=UTF-8''([^;]+)|filename="?([^"]+)"?/i.exec(cd);
+              var fallback = 'download.' + (formatSel.value || 'mp3');
+              var filename = fallback;
+              if (match) filename = decodeURIComponent(match[1] || match[2] || fallback);
+
+              return res.blob().then(function (blob) {
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(function () {
+                  window.URL.revokeObjectURL(url);
+                  document.body.removeChild(a);
+                }, 100);
+              });
+            })
+            .catch(function (err) {
+              showError(err.message.replace(/<[^>]*>/g, '').slice(0, 600));
+            })
+            .finally(function () {
+              $('#downloadingModal').modal('hide');
+              btn.disabled = false;
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
