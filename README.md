@@ -1,4 +1,4 @@
-# spotify_downloader (Windows, PyCharm)
+# AudioMint (Windows, PyCharm)
 
 ## Python version (IMPORTANT)
 spotDL 4.3.0 requires Python **>=3.9 and <3.14**. Use **Python 3.13.5** for this project.  
